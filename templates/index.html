@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Weather Monitoring System</h1>
+    <table id="weatherTable">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature (°C)</th>
+                <th>Feels Like (°C)</th>
+                <th>Main Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for weather in data %}
+            <tr>
+                <td>{{ weather.city }}</td>
+                <td>{{ weather.temp }}</td>
+                <td>{{ weather.feels_like }}</td>
+                <td>{{ weather.main }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Search City</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button id="searchBtn">Search</button>
+    <div id="cityList">
+        <!-- List of cities will be displayed here -->
+    </div>
+
+    <div id="summaryTable" style="display: none;">
+        <h2>Daily Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Avg Temp (°C)</th>
+                    <th>Min Temp (°C)</th>
+                    <th>Max Temp (°C)</th>
+                    <th>Avg Humidity (%)</th>
+                    <th>Wind Speed (m/s)</th>
+                </tr>
+            </thead>
+            <tbody id="summaryBody">
+                <!-- Daily summary will be filled here -->
+            </tbody>
+        </table>
+    </div>
+
+    <button id="visualizeBtn">Create Visuals</button>
+    <canvas id="weatherChart"></canvas>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
