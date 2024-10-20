@@ -36,6 +36,8 @@ This project is a real-time weather monitoring system that retrieves weather dat
 ### Prerequisites
     - Python 3.8 or higher
     - An OpenWeatherMap API key
+### Clone the Git Repository
+    git clone https://github.com/sg0097/zeotap_task2.git 
 
 ### Build and Install
 ### Create a virtual environment 
